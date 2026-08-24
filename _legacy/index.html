@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holidays.AI — Every great story starts with a Journey</title>
+<meta name="description" content="AI-powered international travel planning. Tell Twinkle where you dream of going and get a personalized itinerary, refined by local experts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="logo" href="#top" aria-label="Holidays.AI home">
+      <img class="logo-image" src="assets/logo.png" alt="Holidays.AI">
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-actions" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-actions" id="nav-actions">
+      <a class="btn btn-primary" href="#lead-form">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero section-order" id="top" style="--hero-bg-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1600&auto=format&fit=crop');" data-order="10">
+    <div class="hero-media" role="img" aria-label="Aerial view of a tropical coastline at golden hour"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="eyebrow eyebrow--light">TRAVEL, REIMAGINED BY AI</p>
+      <h1 class="hero-headline">UNLOCK YOUR NEXT HOLIDAY</h1>
+      <p class="hero-subhead">WITH THE HOLIDAYS.AI</p>
+      <a href="#lead-form" class="btn btn-primary btn-lg hero-cta" data-scroll-target="#lead-form">Plan My International Trip</a>
+    </div>
+  </section>
+
+  <!-- ============ DESTINATION STRIP ============ -->
+  <section class="destinations section-order" id="destinations" data-order="20">
+    <div class="section-head">
+      <p class="eyebrow">CURRENTLY PLANNING TRIPS TO</p>
+      <h2 class="section-heading">Where To Next?</h2>
+    </div>
+
+    <div class="destination-rail">
+      <button class="destination-card" type="button" data-destination="bali">
+        <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?q=80&w=900&auto=format&fit=crop" alt="Rice terraces and stone temples in Bali, Indonesia" loading="lazy">
+        <span class="destination-overlay"></span>
+        <span class="destination-badge">4 tours</span>
+        <span class="destination-name">Bali</span>
+      </button>
+      <button class="destination-card" type="button" data-destination="vietnam">
+        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=900&auto=format&fit=crop" alt="Halong Bay limestone karsts at sunrise, Vietnam" loading="lazy">
+        <span class="destination-overlay"></span>
+        <span class="destination-badge">6 tours</span>
+        <span class="destination-name">Vietnam</span>
+      </button>
+      <button class="destination-card" type="button" data-destination="laos">
+        <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=900&auto=format&fit=crop" alt="Buddhist monks crossing a misty street in Luang Prabang, Laos" loading="lazy">
+        <span class="destination-overlay"></span>
+        <span class="destination-badge">3 tours</span>
+        <span class="destination-name">Laos</span>
+      </button>
+      <button class="destination-card" type="button" data-destination="sri-lanka">
+        <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=900&auto=format&fit=crop" alt="Tea plantations in the hill country of Sri Lanka" loading="lazy">
+        <span class="destination-overlay"></span>
+        <span class="destination-badge">5 tours</span>
+        <span class="destination-name">Sri Lanka</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ LEAD FORM (reordered on mobile via CSS order) ============ -->
+  <section class="lead-section section-order" id="lead-form" data-order="60">
+    <div class="lead-card">
+
+      <form id="leadForm" novalidate>
+        <h2 class="lead-heading">Let's Plan Your Trip</h2>
+     
+
+        <div class="form-row">
+          <label for="lf-name">Name</label>
+          <input type="text" id="lf-name" name="name" autocomplete="name" required>
+          <span class="field-error" id="err-name" role="alert"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="lf-email">Email</label>
+          <input type="text" id="lf-email" name="email" autocomplete="email" required>
+          <span class="field-error" id="err-email" role="alert"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="lf-phone">Phone Number</label>
+          <div class="phone-input">
+            <span class="phone-prefix" aria-hidden="true">+91</span>
+            <input type="tel" id="lf-phone" name="phone" autocomplete="tel-national" required>
+          </div>
+          <span class="field-error" id="err-phone" role="alert"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="lf-destination">Where would you like to go</label>
+          <select id="lf-destination" name="destination" required>
+            <option value="">Select a destination</option>
+            <option value="bali">Bali</option>
+            <option value="vietnam">Vietnam</option>
+            <option value="laos">Laos</option>
+            <option value="sri-lanka">Sri Lanka</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+          <span class="field-error" id="err-destination" role="alert"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="lf-travellers">No. of Travellers</label>
+          <select id="lf-travellers" name="travellers" required>
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3-5">3–5</option>
+            <option value="6+">6+</option>
+          </select>
+          <span class="field-error" id="err-travellers" role="alert"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="lf-budget">Budget</label>
+          <select id="lf-budget" name="budget" required>
+            <option value="">Select</option>
+            <option value="under-75000">Under ₹75,000 per person</option>
+            <option value="75000-150000">₹75,000–₹1,50,000 per person</option>
+            <option value="150000-250000">₹1,50,000–₹2,50,000 per person</option>
+            <option value="250000+">₹2,50,000+ per person</option>
+          </select>
+          <span class="field-error" id="err-budget" role="alert"></span>
+        </div>
+
+        <div class="lead-error-banner" id="leadErrorBanner" role="alert" hidden>
+          Something went wrong on our end. Please try again in a moment.
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="leadSubmit">Get My Personalized Plan</button>
+      </form>
+
+      <div class="lead-success" id="leadSuccess" hidden>
+        <svg class="success-check" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" stroke="var(--color-primary)" stroke-width="3"/>
+          <path d="M20 33L28 41L44 24" stroke="var(--color-primary)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2>We'll be in touch shortly</h2>
+        <p>A travel specialist and Twinkle are already looking at your trip. Keep an eye on your inbox.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ VALUE PROPOSITION ============ -->
+  <section class="value-props section-order" data-order="30">
+    <div class="value-grid">
+      <div class="value-item">
+        <svg class="value-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M24 5 L40 11 V22 C40 33 33 41 24 44 C15 41 8 33 8 22 V11 Z" stroke="var(--color-primary)" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M18 23 L23 28 L31 18" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Decades of Expertise</h3>
+        <p>6,500 hotels. 20 countries. Decades of expertise, now personalized for you.</p>
+      </div>
+      <div class="value-item">
+        <svg class="value-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M27 4 L11 26 H22 L20 44 L38 20 H26 Z" stroke="var(--color-primary)" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <h3>Planned in Minutes</h3>
+        <p>Tell us where you dream of going. Our AI builds your holiday in minutes.</p>
+      </div>
+      <div class="value-item">
+        <svg class="value-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 24 L14 16 L21 22 L18 25 L24 30 L30 24 L27 21 L34 15 L43 23" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 16 L20 10 L28 10 L34 15" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>AI Designed, Expert Refined</h3>
+        <p>No generic itineraries. No tourist traps. Just a trip built around you.</p>
+      </div>
+      <div class="value-item">
+        <svg class="value-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="19" stroke="var(--color-primary)" stroke-width="2.5"/>
+          <path d="M15 25 L21 31 L33 17" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Nothing Left to Chance</h3>
+        <p>Every detail ready before you land. New destination, nothing else new.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how-it-works section-order" data-order="40">
+    <div class="section-head">
+      <p class="eyebrow">THE PROCESS</p>
+      <h2 class="section-heading">How It Works</h2>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="step-number">1</span>
+        <p>Tell us your destination and travel style</p>
+      </li>
+      <li class="step">
+        <span class="step-number">2</span>
+        <p>AI builds your personalized itinerary in minutes</p>
+      </li>
+      <li class="step">
+        <span class="step-number">3</span>
+        <p>Our local experts refine every detail before you book</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <section class="trust-strip section-order" data-order="50">
+    <div class="trust-inner">
+      <span class="trust-stat">6,500 Hotels</span>
+      <span class="trust-divider" aria-hidden="true"></span>
+      <span class="trust-stat">20 Countries</span>
+      <span class="trust-divider" aria-hidden="true"></span>
+      <span class="trust-stat">2 Decades of Expertise</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="#top" aria-label="Holidays.AI home">
+        <img class="logo-image logo-image--light" src="assets/logo.png" alt="Holidays.AI">
+      </a>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h3>Work with us</h3>
+        <ul>
+          <li><a href="#">Partner with Us</a></li>
+          <li><a href="#">Community Ambassador Program</a></li>
+          <li><a href="#">Content Creators</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Press and Media</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" aria-label="Holidays.AI on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="#" aria-label="Holidays.AI on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><line x1="7.5" y1="10" x2="7.5" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="7.5" cy="7" r="1" fill="currentColor"/><path d="M11.5 17V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M11.5 13c0-1.7 1.3-3 3-3s2.5 1.1 2.5 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#" aria-label="Holidays.AI on X">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <p class="footer-tagline">Every great story starts with a Journey.</p>
+    <p class="footer-copyright">© 2026 Holidays.AI. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ============ TOUR PACKAGE MODAL ============ -->
+<div class="modal-overlay" id="packageModal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalDestinationName" tabindex="-1">
+    <button class="modal-close" type="button" id="modalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <p class="eyebrow">TOUR PACKAGES</p>
+    <h2 class="modal-heading" id="modalDestinationName">Destination</h2>
+    <div class="package-list" id="packageList"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
